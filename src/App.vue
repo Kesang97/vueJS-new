@@ -1,23 +1,20 @@
 <template>
-
-
-  
-<div class="container">
-  <AdminDashboard />
-</div>
-
+  <div>
+    <sidebar/>
+    <router-view/>
+  </div>
 </template>
 
 <script>
+import sidebar from './components/sidebar.vue'
 
-import AdminDashboard from './components/AdminDashboard.vue'
 export default {
   name: 'App',
-  components: {
-    AdminDashboard,
-
+  components:{
+    sidebar
   },
-}
+  
+};
 </script>
 
 <style>
