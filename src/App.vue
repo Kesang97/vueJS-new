@@ -1,17 +1,22 @@
 <template>
-  <div>
-    <HelloWorld/>
-  </div>
+
+
+  
+<div class="container">
+  <AdminDashboard />
+</div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import AdminDashboard from './components/AdminDashboard.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    AdminDashboard,
+
+  },
 }
 </script>
 
