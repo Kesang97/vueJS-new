@@ -1,102 +1,144 @@
 <template>
-<div>
+  <div>
     <!-- navbar -->
-    <div id="header" style="background: #E1EEDD">
-        <div class="container">
-            <nav class="navbar navbar-expand">
-                <a href="#" class="" @click="drawer = !drawer">
-                    <i class="side-icon fas fa-bars"></i>
-                </a>
+    <div id="header" class="shadow-sm" style="background: #FFFFFF">
+      <div class="container">
+        <nav class="navbar navbar-expand py-2">
+          <button class="btn btn-lg" @click="drawer= !drawer">
+            <i class="fas fa-bars"></i>
+          </button>
 
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-items">
-                        
-                    <div class="input-group" >
-                        <input type="search" value="search" class="form-control py-2 border-right-0 border" placeholder="search model" style="border-radius: 30px solid #E1EEDD;">
-                        <span class="input-group-append">
-                            <div class="input-group-text bg-transparent">
-                                <i class="fas fa-search"></i>
-                            </div>
-                           
-                        </span>
-                      
-                    </div>
-              
-                    </li>
-                </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-items">
+              <div class="input-group">
+                <input
+                  type="search"
+                  value="search"
+                  class="form-control py-2 border-right-0 border"
+                  placeholder="search model"
+                  style="background: #f0f0f7"
                 
-            </nav>
-        </div>
-        
-
+                />
+                <span class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="search-icon fas fa-search"></i>
+                  </div>
+                </span>
+              </div>
+            </li>
+            <li class="nav-items">
+                <a href="#" class="nav-link pl-5 my-auto">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </li>
+            <li class="nav-items">
+                <a href="#" class="nav-link pl-5 my-auto">
+                    <i class="far fa-bell"></i>
+                </a>
+            </li>
+            <li class="nav-items">
+               <div class="my-auto pl-5" style="cursor: pointer">
+                    <img class="rounded-circle img-fluid" 
+                        width="40px" 
+                        src="https://mdbcdn.b-cdn.net/img/new/avatars/9.webp" 
+                    />
+               </div>
+                
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
-    
     <!-- side-bar -->
-   
-    <b-sidebar  sidebar-class="border-right border-danger" v-model="drawer">
-        <div class="header" style="background: #E1EEDD; ">
-            <div class="img text-center px-auto">
-                <img src="../assets/side_logo.png" class="img-fluid" width="120px" alt="">
-            </div>
-            
-
-            <div>
-
-    <b-navbar-nav>
-      <b-nav-item href="#">Home</b-nav-item>
-
-      <!-- Navbar dropdowns -->
-      <b-nav-item-dropdown text="Dashboard" left>
-        <b-dropdown-item>Food</b-dropdown-item>
-        
-      </b-nav-item-dropdown>
-
-      <b-nav-item-dropdown text="Menus" left>
-        <b-dropdown-item href="#">Menu Catalogue</b-dropdown-item>
-        <b-dropdown-item href="#">Menu List</b-dropdown-item>
-        <b-dropdown-item href="#">Menu Grid</b-dropdown-item>
-        <b-dropdown-item href="#">Add product</b-dropdown-item>
-        <b-dropdown-item href="#">Product detail</b-dropdown-item>
-         </b-nav-item-dropdown>
-         <b-nav-item href="#">Orders</b-nav-item>
-         <b-nav-item href="#">Restaurants List</b-nav-item>
-         <b-nav-item-dropdown text="Customers" left>
-        <b-dropdown-item href="#">Customers List</b-dropdown-item>
-        <b-dropdown-item href="#">Customers Review</b-dropdown-item>
-        <b-dropdown-item href="#">Social Activity</b-dropdown-item>
-    </b-nav-item-dropdown>
-
-    <b-nav-item href="#">Sales</b-nav-item>
-   
-    </b-navbar-nav>
-
-</div>
-
+    <b-sidebar v-model="drawer">
+    
+        <div class="sidebar" >
+            <a href="#" class="active">
+                <i class="fas fa-tachometer-slowest"></i>
+                Dashboard
+            </a>
+            <a href="#" >Home</a>
+            <a href="#" >Categories</a>
+            <a href="#" >MenuItems</a>
+            <a href="#" >Orders</a>
+            <a href="#" >Delivery</a>
+            <a href="#" >News</a>
+            <a href="#" >Setting</a>
         </div>
+  
     </b-sidebar>
-
-</div>
-
+  </div>
 </template>
 
 <script>
-export default{
-    name:'sidebar',
+export default {
+  name: "sidebar",
 
-    data(){
-        return{
-            drawer: false,
-        }
-    }
-    
-}
-
+  data() {
+    return {
+      drawer: false,
+    };
+  },
+};
 </script>
 
 <style>
-.side-icon{
-    font-size: 20px;
-    color: red;
+.search-icon{
+  font-size: 20px;
+  color: grey;
+  cursor: pointer;
 }
+.navbar .btn i{
+  font-size: 20px;
+  color: #F94A29;
+}
+
+.nav-items a i{
+    font-size: 22px;
+    color: #B2B2B2;
+}
+
+.nav-items a i:hover{
+    color: #F94A29;
+}
+
+/* sidebar */
+.sidebar{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    
+}
+.sidebar a{
+    display: block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+.sidebar a.active{
+   background-color: #6096B4;
+   color: white;
+}
+.sidebar a:hover:not(.active){
+    background-color: #93BFCF;
+    color: white;
+}
+
+@media screen and (max-width: 768px){
+    .sidebar{
+        width: 100%;
+        text-align: center;
+        height: auto;
+        position: relative;
+    }
+    .sidebar a{
+        float: left;
+    }
+}
+
+
 
 </style>
