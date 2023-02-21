@@ -7,7 +7,6 @@
 
 <script>
 import sidebar from './components/sidebar.vue'
-
 export default {
   name: 'App',
   components:{
