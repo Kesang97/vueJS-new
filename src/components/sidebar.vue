@@ -48,75 +48,13 @@
         <b-sidebar v-model="drawer">
 
             <div class="sidebar">
-                <a href="#" class="active">
+                <a href="#" class="active" v-for="(data, index) in dashItems" :key="index">
                     <span>
-                        <i class="far fa-envelope ">
-                        </i>
-                        Dashboard
-                    </span>
-                </a>
-
-                <a href="#">
-                    <span>
-                        
-                       
- 
- 
-                        <i class="fa fa-user "></i>
-                        Home
-                    </span>
-
- 
- 
-
-
-                </a>
-
-                <a href="#">
-                    <span>
-                        <i class="fas fa-clipboard-list "></i>
-
-                        Categories
-                    </span>
-                </a>
-                <a href="#">
-                    <span>
-
-                    <i class="fa fa-tasks"></i>
-
-                        MenuItems
-                    </span>
-                </a>
-                <a href="#">
-                    <span>
-                        <i class="fa fa-bars "></i>
-                        Orders
-                    </span>
-                </a>
-                <a href="#">
-                    <span>
-                        <i class="fa fa-truck "></i>
-
-                        Delivery
-                    </span>
-                </a>
-                <a href="#">
-                    <span>
-                        <i class="fa fa-newspaper "></i>
-                        News
-                    </span>
-                </a>
-                <a href="#">
-                    <span>
-                        <i class="fa  fa-gear "></i>
-                        Setting
+                        <font-awesome-icon :icon="data.icons" />
+                        {{ data.title }}
                     </span>
                 </a>
             </div>
-
-
-               
-                
         </b-sidebar>
     </div>
   
@@ -129,6 +67,30 @@ export default {
     data() {
         return {
             drawer: false,
+            dashItems:[
+                {
+                    icons: 'fal fa-envelope', title:'Dashboard'
+                },
+                {
+                    icons: 'fal fa-envelope', title:'Home'
+                },
+                {
+                    icons: 'fal fa-envelope', title:'Categories'
+                },
+                {
+                    icons: 'fal fa-envelope', title:'MenuItems'
+                },
+                {
+                    icons: 'fal fa-envelope', title:'Orders'
+                },
+                {
+                    icons: 'fal fa-envelope', title:'News'
+                },
+                {
+                    icons: 'fal fa-envelope', title:'Settings'
+                },
+
+            ]
         };
     },
 };
@@ -168,12 +130,11 @@ export default {
 
 .sidebar a {
     display: block;
-    text-align: center;
     padding: 16px;
     text-decoration: none;
 }
 
-.sidebar a.active {
+/* .sidebar a.active {
     background-color: #6096B4;
     color: white;
 }
@@ -181,7 +142,7 @@ export default {
 .sidebar a:hover:not(.active) {
     background-color: #93BFCF;
     color: white;
-}
+} */
 
 @media screen and (max-width: 768px) {
     .sidebar {
